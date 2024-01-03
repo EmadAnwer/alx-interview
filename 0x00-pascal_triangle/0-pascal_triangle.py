@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """pascal_triangle module"""
+
+
 def pascal_triangle(n):
     """pascal_triangle
     arg:
@@ -8,7 +10,7 @@ def pascal_triangle(n):
     """
     if n <= 0:
         return []
-    
+
     triangle = [[1]]
     for row_num in range(1, n):
         row = [1] * (row_num + 1)
