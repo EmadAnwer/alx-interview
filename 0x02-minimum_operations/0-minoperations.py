@@ -4,22 +4,17 @@
 
 def minOperations(n):
     """minOperations"""
-    if n == 1:
+    if n <= 1:
         return 0
 
-    my_n = 2
-    counter = 2
-    base = 0
-    while my_n != n:
-        my_n += base
-        counter += base
-        while my_n < n:
-            my_n *= 2
-            counter += 2
-        if my_n == n:
-            return counter
-        if base == n:
-            return 0
-        my_n = 2
-        counter = 2
-        base += 1
+    operations = 0
+    divisor = 2
+
+    while n > 1:
+        while n % divisor == 0:
+            operations += divisor
+            n //= divisor
+        divisor += 1
+
+    return operations
+
