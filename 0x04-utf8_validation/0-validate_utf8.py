@@ -16,8 +16,6 @@ def validUTF8(data) -> bool:
             return 2
         elif binary_representation.startswith("1110"):
             return 3
-        elif binary_representation.startswith("11110"):
-            return 4
         else:
             return -1
 
