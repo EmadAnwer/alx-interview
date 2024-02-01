@@ -21,6 +21,7 @@ def validUTF8(data):
             return 1
 
         sequence_count = len(binary_represenstaion[:5].split("0")[0])
+        print(sequence_count)
         if sequence_count == 5:
             return -1
 
@@ -36,15 +37,18 @@ def validUTF8(data):
         if sequence_count == 0:
             i += 1
             continue
+        if sequence_count == 1:
+            return False
 
-        j = 1
+        i += 1
+        if i + sequence_count > len(data):
+            return False
+        j = 0
         while j < sequence_count:
+            
             if byte_sequence_count(data[i + j]) != 1:
                 return False
-            
-
             j += 1
-
-        i += sequence_count + 1
+        i += sequence_count
 
     return True
