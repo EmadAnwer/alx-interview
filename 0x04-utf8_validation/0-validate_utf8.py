@@ -36,8 +36,6 @@ def validUTF8(data):
         if sequence_count == 0:
             i += 1
             continue
-        if sequence_count == 1:
-            return False
 
         j = 1
         while j < sequence_count:
