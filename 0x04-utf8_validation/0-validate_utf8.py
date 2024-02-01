@@ -37,12 +37,13 @@ def validUTF8(data):
             i += 1
             continue
 
-        for j in range(i + 1, i + sequence_count + 1):
-            if j >= len(data):
+        j = 1
+        while j < sequence_count:
+            if byte_sequence_count(data[i + j]) != 1:
                 return False
+            
 
-            if byte_sequence_count(data[j]) != 1:
-                return False
+            j += 1
 
         i += sequence_count + 1
 
