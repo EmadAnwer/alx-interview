@@ -4,10 +4,11 @@
 """
 
 
-def validUTF8(data):
+def validUTF8(data) -> bool:
     """Determines if a given data set represents a valid UTF-8 encoding"""
 
     def byte_sequence_count(byte):
+        """Returns the number of bytes in a UTF-8 sequence"""
         binary_representation = bin(byte)[2:].rjust(8, "0")
         if binary_representation.startswith("0"):
             return 1
@@ -35,6 +36,7 @@ def validUTF8(data):
             return False
 
         for j in range(sequence_count - 1):
+            
             if not (data[i + j] & 0b11000000 == 0b10000000):
                 return False
 
