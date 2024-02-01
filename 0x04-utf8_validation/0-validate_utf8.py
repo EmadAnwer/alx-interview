@@ -33,25 +33,23 @@ def validUTF8(data):
         if sequence_count == -1:
             return False
 
+        i += 1
         if sequence_count == 0:
-            i += 1
             continue
 
         if sequence_count == 1:
             return False
 
-        i += 1
-
-        if i + sequence_count > len(data):
+        if i + sequence_count - 1 > len(data):
             return False
 
         j = 0
-        while j < sequence_count:
+        while j < sequence_count - 1:
             if byte_sequence_count(data[i + j]) != 1:
                 return False
 
             j += 1
 
-        i += sequence_count + 1
+        i += sequence_count
 
     return True
