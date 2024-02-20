@@ -11,7 +11,7 @@ def rotate_2d_matrix(matrix: list):
         for j in range(len(matrix) - length, 0, -1):
             print(i, j)
             matrix[i - 1].append(matrix[j - 1].pop())
-    del matrix[0 : len(matrix) - length]
+    del matrix[0: len(matrix) - length]
 
 
 # matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
