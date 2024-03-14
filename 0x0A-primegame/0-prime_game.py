@@ -17,7 +17,7 @@ def isWinner(x, nums):
         prime = [True for i in range(n + 1)]
         pointer = 2
         while pointer * pointer <= n:
-            if prime[p] == True:
+            if prime[pointer] == True:
                 for i in range(pointer * pointer, n + 1, pointer):
                     prime[i] = False
             pointer += 1
